@@ -1,0 +1,19 @@
+name: Threads 토큰 장기 전환 (처음 한 번)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  exchange:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - env:
+          THREADS_SHORT_TOKEN: ${{ secrets.THREADS_SHORT_TOKEN }}
+          THREADS_APP_SECRET: ${{ secrets.THREADS_APP_SECRET }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: python scripts/exchange_threads_token.py

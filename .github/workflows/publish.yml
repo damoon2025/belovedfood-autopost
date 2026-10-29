@@ -1,0 +1,60 @@
+name: 캐러셀 자동 게시
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # 15분마다 확인 (UTC 기준이지만 publish_at은 한국 시간으로 비교)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "실제로 올리지 않고 확인만 (1 = 드라이런)"
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: 이미지를 인스타그램 규격 JPEG로 변환
+        run: python scripts/prepare_images.py
+
+      - name: 변환된 이미지 커밋
+        run: |
+          git config user.name "autopost-bot"
+          git config user.email "autopost-bot@users.noreply.github.com"
+          git add -A posts
+          if ! git diff --cached --quiet; then
+            git commit -m "이미지 규격 변환"
+            git push
+          fi
+          echo "IMAGE_BASE_URL=https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: 게시
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
+        run: python scripts/publish.py
+
+      - name: 게시 결과 기록
+        if: always()
+        run: |
+          git add -A posts
+          if ! git diff --cached --quiet; then
+            git commit -m "게시 결과 기록"
+            git push
+          fi

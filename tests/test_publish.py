@@ -30,6 +30,7 @@ def posts_dir(tmp_path, monkeypatch):
     monkeypatch.setenv("NOW_OVERRIDE", "2026-11-02T19:31:00+09:00")
     monkeypatch.setenv("IMAGE_BASE_URL", "https://raw.example/sha")
     monkeypatch.setenv("IG_ACCESS_TOKEN", "ig-test")
+    monkeypatch.setenv("IG_USER_ID", "IG1")
     monkeypatch.setenv("THREADS_ACCESS_TOKEN", "th-test")
     return d
 
@@ -102,15 +103,16 @@ def test_full_publish_instagram_then_threads(posts_dir):
     assert data["status"] == "published"
     assert data["instagram_media_id"] and data["threads_media_id"]
     posts = [c for c in api.calls if c[0] == "POST"]
-    ig_children = [c for c in posts if "graph.instagram.com" in c[1] and c[2].get("is_carousel_item") == "true"]
+    ig_children = [c for c in posts if "graph.facebook.com" in c[1] and c[2].get("is_carousel_item") == "true"]
     th_children = [c for c in posts if "threads" in c[1] and c[2].get("is_carousel_item") == "true"]
     assert len(ig_children) == 7 and len(th_children) == 7
     assert ig_children[0][2]["image_url"] == "https://raw.example/sha/posts/a/1.jpg"
-    parent = next(c for c in posts if c[2].get("media_type") == "CAROUSEL" and "instagram" in c[1])
+    parent = next(c for c in posts if c[2].get("media_type") == "CAROUSEL" and "graph.facebook.com" in c[1])
+    assert ig_children[0][1].endswith("/IG1/media")
     assert parent[2]["is_ai_generated"] == "true"
     # 인스타그램이 Threads보다 먼저
     first_th = next(i for i, c in enumerate(api.calls) if "threads" in c[1])
-    last_ig = max(i for i, c in enumerate(api.calls) if "graph.instagram.com" in c[1])
+    last_ig = max(i for i, c in enumerate(api.calls) if "graph.facebook.com" in c[1])
     assert last_ig < first_th
 
 
@@ -129,7 +131,7 @@ def test_retry_skips_finished_channel(posts_dir):
     prepare_images.main()
     api = FakeAPI()
     assert run_with(api) == 0
-    assert not any("graph.instagram.com" in c[1] for c in api.calls)
+    assert not any("graph.facebook.com" in c[1] for c in api.calls)
     assert json.loads((folder / "post.json").read_text(encoding="utf-8"))["status"] == "published"
 
 

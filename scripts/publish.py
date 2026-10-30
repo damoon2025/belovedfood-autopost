@@ -8,7 +8,8 @@
 - 한 장이라도 실패하면 장수를 줄여 올리지 않고 그 게시물 전체를 실패로 둔다.
 
 환경 변수
-  IG_ACCESS_TOKEN       인스타그램 장기 토큰 (Instagram 로그인 방식)
+  IG_ACCESS_TOKEN       인스타그램 게시용 시스템 사용자 토큰 (만료 없음, 통합 로그인 방식)
+  IG_USER_ID            인스타그램 프로페셔널 계정 ID (@belovedfood.kr)
   THREADS_ACCESS_TOKEN  Threads 장기 토큰
   IMAGE_BASE_URL        이미지가 공개되는 주소의 앞부분.
                         예: https://raw.githubusercontent.com/OWNER/REPO/<커밋SHA>
@@ -26,7 +27,7 @@ import requests
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import ROOT, Post, load_posts, now_kst, validate  # noqa: E402
 
-IG_HOST = os.environ.get("IG_API_HOST", "https://graph.instagram.com")
+IG_HOST = os.environ.get("IG_API_HOST", "https://graph.facebook.com")
 IG_VERSION = os.environ.get("IG_API_VERSION", "v24.0")
 TH_HOST = os.environ.get("THREADS_API_HOST", "https://graph.threads.net")
 TH_VERSION = os.environ.get("THREADS_API_VERSION", "v1.0")
@@ -78,8 +79,9 @@ def image_urls(post: Post) -> list[str]:
 # ---------- Instagram ----------
 def publish_instagram(post: Post, urls: list[str], token: str) -> str:
     api = f"{IG_HOST}/{IG_VERSION}"
-    me = _call("GET", f"{api}/me", token, fields="user_id,username")
-    uid = me.get("user_id") or me["id"]
+    uid = os.environ.get("IG_USER_ID", "").strip()
+    if not uid:
+        raise PublishError("IG_USER_ID가 설정되지 않음")
     children = []
     for i, url in enumerate(urls, 1):
         body = _call("POST", f"{api}/{uid}/media", token, image_url=url, is_carousel_item="true")

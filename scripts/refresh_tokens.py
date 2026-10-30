@@ -1,9 +1,10 @@
-"""인스타그램·Threads 장기 토큰(60일)을 연장하고 GitHub Secrets에 다시 저장한다.
+"""Threads 장기 토큰(60일)을 연장하고 GitHub Secrets에 다시 저장한다.
 
-매주 한 번 실행되므로 토큰이 만료될 일이 없다. 새 토큰 값은 화면에 출력하지 않고
+인스타그램은 만료 없는 시스템 사용자 토큰을 쓰므로 연장하지 않는다.
+매주 한 번 실행되므로 Threads 토큰이 만료될 일이 없다. 새 토큰 값은 화면에 출력하지 않고
 gh CLI의 표준 입력으로만 넘긴다.
 
-필요한 환경 변수: IG_ACCESS_TOKEN, THREADS_ACCESS_TOKEN, GH_TOKEN(Secrets 쓰기 권한 PAT), GITHUB_REPOSITORY
+필요한 환경 변수: THREADS_ACCESS_TOKEN, GH_TOKEN(Secrets 쓰기 권한 PAT), GITHUB_REPOSITORY
 """
 from __future__ import annotations
 
@@ -14,7 +15,6 @@ import sys
 import requests
 
 TARGETS = [
-    ("IG_ACCESS_TOKEN", "https://graph.instagram.com/refresh_access_token", "ig_refresh_token"),
     ("THREADS_ACCESS_TOKEN", "https://graph.threads.net/refresh_access_token", "th_refresh_token"),
 ]
 

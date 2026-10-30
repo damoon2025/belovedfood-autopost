@@ -41,7 +41,7 @@ GitHub Actions가 15분마다 확인하고, 게시 결과는 각 게시물의 `p
 
 | 이름 | 값 |
 | --- | --- |
-| `IG_ACCESS_TOKEN` | 인스타그램 장기 토큰 (Meta 앱의 Instagram 로그인 API 설정에서 생성) |
+| `IG_ACCESS_TOKEN` | 인스타그램 시스템 사용자 토큰 (비즈니스 설정 → 시스템 사용자에서 생성, 만료 없음) |
 | `THREADS_SHORT_TOKEN` | Threads 이용 사례에서 생성한 토큰 (처음 한 번만) |
 | `THREADS_APP_SECRET` | Meta 앱의 Threads 앱 시크릿 (처음 한 번만) |
 | `GH_PAT` | 토큰 자동 연장용 GitHub 토큰 (아래 3번) |
@@ -53,9 +53,11 @@ GitHub Actions가 15분마다 확인하고, 게시 결과는 각 게시물의 `p
 GitHub **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**
 - Repository access: 이 저장소만
 - Permissions → Repository → **Secrets: Read and write**
+
 - Expiration: 1년 (만료 전에 새로 만들어 `GH_PAT`만 바꿔 주면 돼요)
 
-인스타그램·Threads 토큰은 60일마다 만료되지만, "토큰 자동 연장" 작업이 이 GH_PAT으로 매주 월요일 새벽에 연장해 줘요.
+인스타그램 토큰은 만료되지 않아요. Threads 토큰은 60일마다 만료되지만, "토큰 자동 연장" 작업이 이 GH_PAT으로 매주 월요일 새벽에 연장해 줘요.
+인스타그램 계정 ID(`IG_USER_ID`)는 `.github/workflows/publish.yml`에 적혀 있어요.
 
 ### 4. 테스트
 

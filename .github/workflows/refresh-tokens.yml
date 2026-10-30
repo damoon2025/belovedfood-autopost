@@ -16,7 +16,6 @@ jobs:
       - run: pip install requests
       - name: 토큰 연장 후 Secrets 갱신
         env:
-          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_PAT }}
         run: python scripts/refresh_tokens.py

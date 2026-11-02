@@ -52,6 +52,10 @@ def _call(method: str, url: str, token: str, **params) -> dict:
     if resp.status_code >= 400 or "error" in body:
         err = body.get("error", body)
         msg = err.get("message", str(err)) if isinstance(err, dict) else str(err)
+        if isinstance(err, dict):
+            extra = " / ".join(str(err[k]) for k in ("error_user_title", "error_user_msg", "code", "error_subcode") if err.get(k))
+            if extra:
+                msg = f"{msg} ({extra})"
         raise PublishError(f"{method} {url.split('?')[0]} → {resp.status_code}: {msg}")
     return body
 
@@ -105,6 +109,8 @@ def publish_threads(post: Post, urls: list[str], token: str) -> str:
         body = _call("POST", f"{api}/{uid}/threads", token, media_type="IMAGE", image_url=url, is_carousel_item="true")
         children.append(body["id"])
         print(f"  Threads {i}/{len(urls)}장 컨테이너 생성")
+    for i, cid in enumerate(children, 1):  # 장별 컨테이너가 준비된 뒤에 캐러셀을 만든다
+        _wait_ready(f"{api}/{cid}", token, "status", f"Threads {i}장")
     parent = _call(
         "POST", f"{api}/{uid}/threads", token,
         media_type="CAROUSEL", children=",".join(children), text=post.data["threads_text"],

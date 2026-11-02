@@ -32,13 +32,11 @@ jobs:
 
       - name: 슬라이드 렌더링 (slides.html → 이미지)
         run: |
-          need=0
-          for f in posts/*/slides.html; do
-            [ -e "$f" ] || continue
-            d=$(dirname "$f")
-            [ -e "$d/1.jpg" ] || [ -e "$d/1.png" ] || need=1
-          done
-          if [ "$need" = 1 ]; then
+          set +e
+          python scripts/render_slides.py --check
+          code=$?
+          set -e
+          if [ "$code" = 10 ]; then
             sudo apt-get install -y -qq fonts-noto-cjk > /dev/null
             pip install -q playwright
             python -m playwright install --with-deps chromium > /dev/null

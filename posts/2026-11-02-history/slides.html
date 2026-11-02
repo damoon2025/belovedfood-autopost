@@ -5,36 +5,38 @@
 <title>11/2 고춧가루 이전, 김치는 원래 하얬다</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
-  :root { --ground: #F6F2E9; --ink: #2B2A26; --body: #3E3B34; --quiet: #6B665A; --accent: #3F5A45; --line: #E3DDCF; }
+  :root { --ground: #FFFFFF; --soft: #F4F7F3; --ink: #1E1E1C; --body: #3A3A36; --quiet: #6E6E68; --accent: #2F6B4F; --line: #E6EAE4; }
   * { box-sizing: border-box; }
-  body { margin: 0; background: #ccc; }
+  body { margin: 0; background: #ddd; }
   .slide { width: 1080px; height: 1350px; background: var(--ground); color: var(--ink);
            font-family: 'Noto Sans KR', 'Noto Sans CJK KR', sans-serif; display: flex; flex-direction: column; overflow: hidden; }
   .serif { font-family: 'Gowun Batang', 'Noto Serif CJK KR', serif; }
-  .photo { margin: 56px 56px 0; border-radius: 24px; overflow: hidden; position: relative; flex: none; }
-  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .photo .note { position: absolute; right: 18px; bottom: 16px; padding: 6px 14px; border-radius: 999px;
-                 background: rgba(0,0,0,.45); color: #fff; font-size: 22px; }
-  .text { padding: 48px 72px 0; display: flex; flex-direction: column; gap: 18px; flex: 1; }
+  /* 사진 톤 통일: 밝고 맑게, 살짝 따뜻하게 */
+  .photo { margin: 48px 48px 0; border-radius: 28px; overflow: hidden; position: relative; flex: none; background: var(--soft); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block;
+               filter: brightness(1.10) contrast(1.05) saturate(1.06); }
+  .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(255,252,245,.10), rgba(255,252,245,.04)); mix-blend-mode: screen; pointer-events: none; }
+  .photo .note { position: absolute; right: 18px; bottom: 16px; padding: 6px 14px; border-radius: 999px; z-index: 2;
+                 background: rgba(0,0,0,.42); color: #fff; font-size: 21px; }
+  .ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; text-align: center;
+        border: 4px dashed #B9C7BC; border-radius: 28px; color: var(--accent); font-size: 34px; font-weight: 700; line-height: 1.5; }
+  .text { padding: 44px 72px 0; display: flex; flex-direction: column; gap: 18px; flex: 1; }
+  .era { align-self: flex-start; padding: 8px 22px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 26px; font-weight: 700; }
   .kicker { font-size: 30px; font-weight: 700; color: var(--accent); }
-  .pill { align-self: flex-start; padding: 10px 24px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 26px; font-weight: 500; }
-  h1 { margin: 0; font-size: 84px; font-weight: 700; line-height: 1.22; letter-spacing: -1px; }
-  h2 { margin: 0; font-size: 58px; font-weight: 700; line-height: 1.3; letter-spacing: -1px; }
-  p  { margin: 0; font-size: 34px; line-height: 1.55; color: var(--body); }
-  .foot { display: flex; justify-content: space-between; align-items: center; padding: 0 72px 52px; font-size: 26px; color: var(--quiet); }
+  h1 { margin: 0; font-size: 88px; font-weight: 700; line-height: 1.2; letter-spacing: -1px; }
+  h2 { margin: 0; font-size: 54px; font-weight: 700; line-height: 1.3; letter-spacing: -1px; }
+  p  { margin: 0; font-size: 32px; line-height: 1.6; color: var(--body); }
+  .quote { padding: 22px 28px; border-radius: 18px; background: var(--soft); font-size: 32px; line-height: 1.55; color: var(--ink); }
+  .src { font-size: 21px; color: var(--quiet); line-height: 1.5; }
+  .foot { display: flex; justify-content: space-between; align-items: center; padding: 0 72px 46px; font-size: 25px; color: var(--quiet); }
   .foot b { color: var(--accent); }
-  .rows { display: flex; flex-direction: column; gap: 22px; }
-  .row { display: flex; gap: 28px; align-items: baseline; }
-  .row .k { flex: none; width: 220px; font-size: 30px; font-weight: 700; color: var(--quiet); }
-  .row .k.on { color: var(--accent); }
-  .row .v { font-size: 36px; line-height: 1.4; }
-  .num { flex: none; width: 52px; height: 52px; border-radius: 50%; background: var(--accent); color: #fff;
-         display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 700; }
-  .src { font-size: 22px; color: var(--quiet); }
-  .chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-  .chip { display: flex; justify-content: space-between; align-items: center; padding: 22px 26px; border-radius: 18px;
-          background: #FFFDF8; border: 2px solid var(--line); font-size: 32px; font-weight: 500; }
-  .chip span { padding: 6px 16px; border-radius: 999px; font-size: 22px; font-weight: 500; }
+  .tl { display: flex; flex-direction: column; gap: 14px; }
+  .tl div { display: flex; gap: 24px; align-items: baseline; font-size: 30px; line-height: 1.4; }
+  .tl span { flex: none; width: 190px; font-weight: 700; color: var(--accent); }
+  .chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .chip { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-radius: 16px;
+          background: var(--soft); font-size: 30px; font-weight: 500; }
+  .chip i { font-style: normal; padding: 5px 14px; border-radius: 999px; font-size: 21px; }
   .chip .on { background: var(--accent); color: #fff; }
   .chip .soon { border: 2px solid var(--quiet); color: var(--body); }
 </style>
@@ -43,88 +45,130 @@
 
 <!-- 1 표지 -->
 <section class="slide">
-  <div class="photo" style="height: 790px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261029_042415_3f142dd3-cb89-43af-9bde-83592af3e670_min.webp" alt=""></div>
-  <div class="text" style="gap: 24px">
-    <div class="pill">김치 이야기</div>
-    <h1 class="serif">김치가 원래<br>빨갛지 않았다면?</h1>
+  <div class="photo" style="height: 820px"><div class="ph">우리 동치미<br>(살얼음 연출 · 원본 사진 대기)</div></div>
+  <div class="text" style="gap: 20px">
+    <div class="kicker">고춧가루 이전, 천 년의 맑은 김치 이야기</div>
+    <h1 class="serif">김치는<br>원래 하얬다</h1>
   </div>
   <div class="foot"><b>그리운밥상</b><span>옆으로 넘겨 보세요 →</span></div>
 </section>
 
-<!-- 2 공감 -->
+<!-- 2 삼국시대 -->
 <section class="slide">
-  <div class="photo" style="height: 820px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261029_043514_fb7364fe-d4e0-4f3b-a581-3e8144f5629c_min.webp" alt=""><span class="note">연출 이미지</span></div>
+  <div class="photo" style="height: 640px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Jangdokdae_in_Naganeupseong_02.jpg/1920px-Jangdokdae_in_Naganeupseong_02.jpg" alt=""></div>
   <div class="text">
-    <h2 class="serif">우리가 아는 빨간 김치,<br><span style="color: var(--accent)">생각보다 역사가 짧아요</span></h2>
-    <p>맵고 자극적인 맛이 부담스러운 아이·어르신 식탁엔<br>원래의 맑은 김치가 더 잘 맞기도 해요.</p>
+    <div class="era">3세기 · 삼국시대</div>
+    <h2 class="serif">절이고 삭히는 지혜는<br>아주 오래됐어요</h2>
+    <p>중국 역사서 『삼국지』 위서 동이전은 고구려 사람들이 장·술·젓갈 같은 발효 음식을 잘 만든다고 적었어요. 683년 신라 신문왕의 혼례 폐백 품목에도 장과 젓갈이 올라 있어요.</p>
+    <div class="src">출처: 『삼국지』 위서 동이전, 『삼국사기』 · 사진: 낙안읍성 장독대 (Bernard Gagnon, CC0)</div>
   </div>
-  <div class="foot"><b>그리운밥상</b><span>2 / 7</span></div>
+  <div class="foot"><b>그리운밥상</b><span>2 / 10</span></div>
 </section>
 
-<!-- 3 연표 -->
+<!-- 3 고려 -->
 <section class="slide">
-  <div class="photo" style="height: 600px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261029_043515_a935c00b-f221-4f07-9875-d0b639ad6bbf_min.webp" alt=""><span class="note">연출 이미지</span></div>
-  <div class="text" style="gap: 32px">
-    <h2 class="serif" style="font-size: 54px">고추는 언제 김치에 들어왔을까?</h2>
-    <div class="rows">
-      <div class="row"><div class="k">그 전</div><div class="v">소금·마늘·생강·파로 맛을 낸 김치</div></div>
-      <div class="row"><div class="k">조선 중기</div><div class="v">고추가 우리나라에 들어와요</div></div>
-      <div class="row"><div class="k on">18세기 무렵</div><div class="v">고추 넣은 김치가 문헌에 등장해요</div></div>
+  <div class="photo" style="height: 620px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Korean_radish_field.jpg/1920px-Korean_radish_field.jpg" alt=""></div>
+  <div class="text">
+    <div class="era">13세기 · 고려</div>
+    <h2 class="serif">문헌에 처음 나오는 김치는<br>소금에 절인 순무예요</h2>
+    <div class="quote">“소금에 절인 순무, 겨울 내내 반찬이 되네”</div>
+    <p>고려 문인 이규보가 텍밭 채소를 노래한 시예요. 고춧가루 없이, 소금으로만 맛을 낸 하얀 김치였어요.</p>
+    <div class="src">출처: 이규보 「가포육영」, 『동국이상국집』 · 사진: 무밭 (Choe Yongwoo, CC0)</div>
+  </div>
+  <div class="foot"><b>그리운밥상</b><span>3 / 10</span></div>
+</section>
+
+<!-- 4 침채 -->
+<section class="slide">
+  <div class="photo" style="height: 640px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261029_042415_3f142dd3-cb89-43af-9bde-83592af3e670_min.webp" alt="" style="object-position: center 70%"><span class="note">연출 이미지</span></div>
+  <div class="text">
+    <div class="era">이름의 뿌리</div>
+    <h2 class="serif">침채(沈菜) → 딘채 → 김치</h2>
+    <p>채소를 소금물에 ‘담근다(沈)’는 뜻의 침채에서 이름이 왔어요. 그래서 옛 김치는 국물이 넉넉한 맑은 김치가 많았어요. 1518년 『벽온방』에는 ‘딘채’라는 말이 보여요.</p>
+    <div class="src">출처: 한국민족문화대백과사전 ‘김치’</div>
+  </div>
+  <div class="foot"><b>그리운밥상</b><span>4 / 10</span></div>
+</section>
+
+<!-- 5 절이기 -->
+<section class="slide">
+  <div class="photo" style="height: 680px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261029_042416_2d8d31fd-1be5-4583-99f7-383a2e8f18d0_min.webp" alt=""><span class="note">연출 이미지</span></div>
+  <div class="text">
+    <div class="era">김치의 첫 단계</div>
+    <h2 class="serif">모든 김치는<br>소금에 절이는 데서 시작해요</h2>
+    <p>소금이 채소의 물기를 빼 주면 숨이 죽으면서도 아삭함은 남아요. 여기에 마늘·생강·파를 더해 맑은 국물에서 천천히 익혔어요.</p>
+  </div>
+  <div class="foot"><b>그리운밥상</b><span>5 / 10</span></div>
+</section>
+
+<!-- 6 맑은 밥상 + 동치미 -->
+<section class="slide">
+  <div class="photo" style="height: 640px"><div class="ph">우리 동치미 국물 클로즈업<br>(원본 사진 대기)</div></div>
+  <div class="text">
+    <div class="era">조선 · 옛 밥상</div>
+    <h2 class="serif">옛 밥상은 맑고 담백했어요</h2>
+    <p>제철 채소에 소금과 향신채만 더해 재료 본래의 맛을 살렸어요. 1600년대 말 『요록』에는 무를 소금물에 담그는 ‘동치미(冬沈)’가 나오고, 1712년 김창업은 중국에서 맛본 동치미가 서울 맛 그대로라고 적었어요.</p>
+    <div class="src">출처: 『요록』, 김창업 『연행일기』 (한국민족문화대백과사전)</div>
+  </div>
+  <div class="foot"><b>그리운밥상</b><span>6 / 10</span></div>
+</section>
+
+<!-- 7 고추의 등장 -->
+<section class="slide">
+  <div class="photo" style="height: 560px; background: #F2EEE6"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/%E8%8A%9D%E5%B3%B0%E9%A1%9E%E8%AA%AA_%EB%AA%A9%ED%8C%90%EB%B3%B8%28%EC%A1%B0%EC%84%A0%EC%B4%9D%EB%8F%85%EB%B6%80_%EA%B3%A0%EC%84%9C%EB%B6%80_%EB%B6%84%EB%A5%98%ED%91%9C_%E5%8F%A4%E6%9C%9D91%29_%EC%A0%9C1%EA%B6%8C_%28%EC%9B%90%EB%B3%B8_%EC%A0%9C1%EA%B6%8C_%EB%B0%8F_%EC%A0%9C2%EA%B6%8C%29.pdf/page1-960px-%E8%8A%9D%E5%B3%B0%E9%A1%9E%E8%AA%AA_%EB%AA%A9%ED%8C%90%EB%B3%B8%28%EC%A1%B0%EC%84%A0%EC%B4%9D%EB%8F%85%EB%B6%80_%EA%B3%A0%EC%84%9C%EB%B6%80_%EB%B6%84%EB%A5%98%ED%91%9C_%E5%8F%A4%E6%9C%9D91%29_%EC%A0%9C1%EA%B6%8C_%28%EC%9B%90%EB%B3%B8_%EC%A0%9C1%EA%B6%8C_%EB%B0%8F_%EC%A0%9C2%EA%B6%8C%29.pdf.jpg" alt="" style="object-fit: contain"></div>
+  <div class="text">
+    <div class="era">1614년 · 조선 중기</div>
+    <h2 class="serif">고추는 바다를 건너온<br>새 재료였어요</h2>
+    <div class="quote">“남만초(南蠻椒)는 왜국에서 처음 들어와 흔히 왜개자(倭芥子)라 부른다”</div>
+    <p>이수광의 『지봉유설』에 남은 기록이에요. 이때만 해도 고추는 김치 재료가 아니었어요.</p>
+    <div class="src">사진: 『지봉유설』 목판본 (퍼블릭 도메인, Wikimedia Commons)</div>
+  </div>
+  <div class="foot"><b>그리운밥상</b><span>7 / 10</span></div>
+</section>
+
+<!-- 8 붉어진 김치 -->
+<section class="slide">
+  <div class="photo" style="height: 640px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Drying_Korean_chillies_2.jpg/1920px-Drying_Korean_chillies_2.jpg" alt=""></div>
+  <div class="text">
+    <div class="era">18세기 이후</div>
+    <h2 class="serif">김치가 붉어진 건<br>생각보다 최근이에요</h2>
+    <p>17세기 말부터 고추를 넣은 김치가 조금씩 보이고, 1766년 『증보산림경제』에 고춧가루와 마늘을 넣은 오이김치가 나와요. 속이 꽉 찬 배추로 담그는 지금의 빨간 포기김치는 100년 남짓 된 모습이에요.</p>
+    <div class="src">출처: 『증보산림경제』, 한국민족문화대백과사전 · 사진: ASADAL, Inc. (CC BY 2.0 KR)</div>
+  </div>
+  <div class="foot"><b>그리운밥상</b><span>8 / 10</span></div>
+</section>
+
+<!-- 9 맑은 김치는 지금도 -->
+<section class="slide">
+  <div class="photo" style="height: 680px"><div class="ph">우리 백열무김치<br>(원본 사진 대기)</div></div>
+  <div class="text">
+    <div class="era">그리고 지금</div>
+    <h2 class="serif">맑은 김치는<br>지금도 이어지고 있어요</h2>
+    <p>동치미, 백김치, 나박김치, 백열무김치. 맵고 자극적인 맛이 부담스러운 아이·어르신 식탁에도 편하게 올릴 수 있는, 옛 김치의 맛이에요.</p>
+  </div>
+  <div class="foot"><b>그리운밥상</b><span>9 / 10</span></div>
+</section>
+
+<!-- 10 정리 + 안내 -->
+<section class="slide">
+  <div class="photo" style="height: 380px"><div class="ph">우리 동치미·백열무김치 함께<br>(원본 사진 대기)</div></div>
+  <div class="text" style="gap: 22px; padding-top: 36px">
+    <h2 class="serif" style="font-size: 48px">저장해 두는 김치 연표</h2>
+    <div class="tl">
+      <div><span>3세기</span>고구려, 발효 음식을 잘 만든다는 기록</div>
+      <div><span>13세기</span>이규보, 소금에 절인 순무 김치</div>
+      <div><span>1600년대 말</span>무를 소금물에 담근 동치미</div>
+      <div><span>1614</span>『지봉유설』, 고추 전래 기록</div>
+      <div><span>1766</span>고춧가루를 넣은 김치 등장</div>
     </div>
-    <div class="src">참고: 『증보산림경제』(1766)</div>
-  </div>
-  <div class="foot"><b>그리운밥상</b><span>3 / 7</span></div>
-</section>
-
-<!-- 4 본문 -->
-<section class="slide">
-  <div class="photo" style="height: 860px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261029_042416_2d8d31fd-1be5-4583-99f7-383a2e8f18d0_min.webp" alt=""></div>
-  <div class="text">
-    <div class="kicker">고추가 들어오기 전엔</div>
-    <h2 class="serif">소금에 절이고<br>마늘·생강·파로 맛을 냈어요</h2>
-  </div>
-  <div class="foot"><b>그리운밥상</b><span>4 / 7</span></div>
-</section>
-
-<!-- 5 본문 -->
-<section class="slide">
-  <div class="photo" style="height: 860px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261029_042813_29668616-84de-4282-8a28-24a3acdb88b9_min.webp" alt=""></div>
-  <div class="text">
-    <div class="kicker">그래서 지금도</div>
-    <h2 class="serif">동치미와 백김치는<br>그 맑은 맛을 이어 온 김치예요</h2>
-  </div>
-  <div class="foot"><b>그리운밥상</b><span>5 / 7</span></div>
-</section>
-
-<!-- 6 정리 -->
-<section class="slide">
-  <div class="photo" style="height: 560px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261029_043515_81481405-e2d5-4121-9994-d95be41b4f86_min.webp" alt=""></div>
-  <div class="text" style="gap: 28px">
-    <h2 class="serif" style="font-size: 54px">한 장 정리</h2>
-    <div class="rows">
-      <div class="row" style="align-items: center"><div class="num">1</div><div class="v">김치의 첫 색은 <b>하얀색</b></div></div>
-      <div class="row" style="align-items: center"><div class="num">2</div><div class="v">고추는 <b>나중에</b> 들어온 재료</div></div>
-      <div class="row" style="align-items: center"><div class="num">3</div><div class="v">맵지 않아 <b>아이·어르신도 편하게</b></div></div>
-    </div>
-    <p style="font-size: 30px">저장해 두고 식탁 이야기로 꺼내 보세요</p>
-  </div>
-  <div class="foot"><b>그리운밥상</b><span>6 / 7</span></div>
-</section>
-
-<!-- 7 CTA -->
-<section class="slide">
-  <div class="photo" style="height: 560px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261029_043514_eed60ea4-7fba-4ce0-a05f-ee373b764f7b_min.webp" alt=""><span class="note">연출 이미지</span></div>
-  <div class="text" style="gap: 28px">
-    <h2 class="serif" style="font-size: 56px">맑은 김치, 그리운밥상에서</h2>
     <div class="chips">
-      <div class="chip">동치미<span class="on">판매 중</span></div>
-      <div class="chip">백열무김치<span class="on">판매 중</span></div>
-      <div class="chip">갓물김치<span class="soon">곧 출시</span></div>
-      <div class="chip">백김치<span class="soon">11월 말</span></div>
+      <div class="chip">동치미<i class="on">판매 중</i></div>
+      <div class="chip">백열무김치<i class="on">판매 중</i></div>
+      <div class="chip">갓물김치<i class="soon">곧 출시</i></div>
+      <div class="chip">백김치<i class="soon">11월 말</i></div>
     </div>
-    <p style="font-size: 30px">구매는 프로필 링크에서, 출시 소식은 팔로우로 받아 보세요</p>
   </div>
-  <div class="foot"><b>그리운밥상</b><span>7 / 7</span></div>
+  <div class="foot"><b>그리운밥상 · 프로필 링크</b><span>10 / 10</span></div>
 </section>
 
 </body>

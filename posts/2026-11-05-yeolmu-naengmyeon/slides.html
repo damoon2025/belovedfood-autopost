@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>11/5 한 끼 · 11월의 별미 열무 냉면</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root { --ground: #FFFFFF; --soft: #F4F7F3; --ink: #1E1E1C; --body: #3A3A36; --quiet: #6E6E68; --accent: #2F6B4F; --line: #E6EAE4; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ddd; }
+  .slide { width: 1080px; height: 1350px; background: var(--ground); color: var(--ink);
+           font-family: 'Noto Sans KR', 'Noto Sans CJK KR', sans-serif; display: flex; flex-direction: column; overflow: hidden; }
+  .text, .tl, .chip { word-break: keep-all; }
+  .serif { font-family: 'Gowun Batang', 'Noto Serif CJK KR', serif; }
+  /* 사진 톤 통일: 밝고 맑게, 살짝 따뜻하게 */
+  .photo { margin: 48px 48px 0; border-radius: 28px; overflow: hidden; position: relative; flex: none; background: var(--soft); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block;
+               filter: brightness(1.10) contrast(1.05) saturate(1.06); }
+  .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(255,252,245,.10), rgba(255,252,245,.04)); mix-blend-mode: screen; pointer-events: none; }
+  .photo .note { position: absolute; right: 18px; bottom: 16px; padding: 6px 14px; border-radius: 999px; z-index: 2;
+                 background: rgba(0,0,0,.42); color: #fff; font-size: 21px; }
+  .ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; text-align: center;
+        border: 4px dashed #B9C7BC; border-radius: 28px; color: var(--accent); font-size: 34px; font-weight: 700; line-height: 1.5; }
+  .text { padding: 44px 72px 0; display: flex; flex-direction: column; gap: 18px; flex: 1; }
+  .era { align-self: flex-start; padding: 8px 22px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 26px; font-weight: 700; }
+  .kicker { font-size: 30px; font-weight: 700; color: var(--accent); }
+  h1 { margin: 0; font-size: 88px; font-weight: 700; line-height: 1.2; letter-spacing: -1px; }
+  h2 { margin: 0; font-size: 54px; font-weight: 700; line-height: 1.3; letter-spacing: -1px; }
+  p  { margin: 0; font-size: 32px; line-height: 1.6; color: var(--body); }
+  .quote { padding: 22px 28px; border-radius: 18px; background: var(--soft); font-size: 32px; line-height: 1.55; color: var(--ink); }
+  .src { font-size: 21px; color: var(--quiet); line-height: 1.5; }
+  .foot { display: flex; justify-content: space-between; align-items: center; padding: 0 64px 30px; font-size: 25px; color: var(--quiet); }
+  .foot b { color: var(--accent); }
+  .foot .logo { height: 96px; width: auto; display: block; }
+  .foot .brand { display: flex; align-items: center; gap: 18px; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .steps div { display: flex; gap: 20px; align-items: flex-start; padding: 18px 24px; border-radius: 18px; background: var(--soft); font-size: 30px; line-height: 1.45; word-break: keep-all; }
+  .steps b { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 26px; }
+  .vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; align-items: center; text-align: center; }
+  .vs div { padding: 18px 10px; border-radius: 18px; background: var(--soft); font-size: 30px; font-weight: 700; line-height: 1.4; }
+  .vs span { font-size: 34px; color: var(--accent); font-weight: 700; }
+  .tl { display: flex; flex-direction: column; gap: 14px; }
+  .tl div { display: flex; gap: 24px; align-items: baseline; font-size: 30px; line-height: 1.4; }
+  .tl span { flex: none; width: 190px; font-weight: 700; color: var(--accent); }
+  .chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .chip { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-radius: 16px;
+          background: var(--soft); font-size: 30px; font-weight: 500; }
+  .chip i { font-style: normal; padding: 5px 14px; border-radius: 999px; font-size: 21px; }
+  .chip .on { background: var(--accent); color: #fff; }
+  .chip .soon { border: 2px solid var(--quiet); color: var(--body); }
+</style>
+</head>
+<body>
+
+<section class="slide">
+  <div class="photo" style="height: 860px"><img src="p-y-noodle.jpg" alt=""><span class="note">그리운밥상 백열무김치</span></div>
+  <div class="text" style="gap: 16px">
+    <div class="kicker">오늘의 한 끼 · 백열무김치</div>
+    <h1 class="serif" style="font-size: 80px">냉면은 원래<br>겨울 음식이었어요</h1>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>옆으로 넘겨 보세요 →</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 640px"><img src="../2026-11-02-history/p-y-bowl.jpg" alt=""><span class="note">그리운밥상 백열무김치</span></div>
+  <div class="text">
+    <div class="era">1849년 · 『동국세시기』</div>
+    <h2 class="serif">11월의 음식, 냉면</h2>
+    <p>홍석모의 『동국세시기』는 동짓달(음력 11월) 음식으로 냉면을 꼽았어요. 메밀국수를 무김치·배추김치 국물에 말아 먹는다고 적었죠. 따뜻한 방에서 먹는 시원한 국물, 그게 겨울 냉면의 맛이었어요.</p>
+    <div class="src">출처: 홍석모 『동국세시기』 11월조</div>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>2 / 5</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 470px"><img src="../2026-11-02-history/p-y-lift.jpg" alt="" style="object-position: center 40%"><span class="note">그리운밥상 백열무김치</span></div>
+  <div class="text" style="gap: 16px">
+    <div class="era">2인분 · 15분</div>
+    <h2 class="serif" style="font-size: 48px">그리운밥상식 백열무 냉면</h2>
+    <div class="steps">
+      <div><b>1</b><span>냉면이나 메밀면을 삶아 찬물에 바락바락 헹궈요</span></div>
+      <div><b>2</b><span>백열무김치 국물에 차가운 생수를 섞어 입맛에 맞게 간을 봐요</span></div>
+      <div><b>3</b><span>면을 담고 국물을 붓고, 열무·삶은 달걀·깨를 올려요</span></div>
+    </div>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>3 / 5</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 620px"><img src="p-y-noodle.jpg" alt="" style="object-position: 30% 50%; transform: scale(1.35); transform-origin: 35% 45%"><span class="note">그리운밥상 백열무김치</span></div>
+  <div class="text">
+    <div class="era">한 끗 팁</div>
+    <h2 class="serif">살얼음까지 원한다면</h2>
+    <p>섞은 국물을 냉동실에 30~40분 넣어 두면 가장자리에 살얼음이 잡혀요. 아이와 함께 먹을 땐 고추 조각만 덜어 내면 돼요. 고춧가루가 들어가지 않아 국물이 맑고 순해요.</p>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>4 / 5</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 420px"><img src="../2026-11-02-history/p-both.jpg" alt=""><span class="note">그리운밥상 동치미 · 백열무김치</span></div>
+  <div class="text" style="gap: 22px; padding-top: 40px">
+    <h2 class="serif" style="font-size: 50px">오늘 저녁,<br>시원한 국물 한 그릇 어때요?</h2>
+    <p>동치미 국물로 말아도 좋아요. 무를 채 썰어 올리면 또 다른 맛이에요.</p>
+    <div class="chips">
+      <div class="chip">백열무김치<i class="on">판매 중</i></div>
+      <div class="chip">동치미<i class="on">판매 중</i></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><b>프로필 링크에서 만나요</b></span><span>5 / 5</span></div>
+</section>
+
+</body>
+</html>

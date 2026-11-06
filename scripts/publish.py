@@ -20,6 +20,7 @@ from __future__ import annotations
 import os
 import sys
 import time
+from datetime import timedelta
 from pathlib import Path
 
 import requests
@@ -120,6 +121,9 @@ def publish_threads(post: Post, urls: list[str], token: str) -> str:
 
 
 # ---------- 실행 ----------
+LATE_WINDOW_HOURS = 4
+
+
 def due_posts() -> list[Post]:
     now = now_kst()
     out = []
@@ -127,6 +131,12 @@ def due_posts() -> list[Post]:
         if post.status != "approved":
             continue
         if post.publish_at and post.publish_at > now:
+            continue
+        # 예약 실행(schedule)이 많이 늦게 돌면 새벽에 올라가지 않도록, 예약 시각 후 4시간이 지나면 건너뛴다.
+        # 수동 실행(workflow_dispatch)은 시간과 상관없이 올린다.
+        if (os.environ.get("GITHUB_EVENT_NAME") == "schedule" and post.publish_at
+                and now - post.publish_at > timedelta(hours=LATE_WINDOW_HOURS)):
+            print(f"[{post.folder.name}] 예약 시각보다 {LATE_WINDOW_HOURS}시간 넘게 늦어 자동 게시를 건너뜀 (수동 실행으로 올릴 수 있음)")
             continue
         out.append(post)
     return out

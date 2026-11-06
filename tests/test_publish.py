@@ -159,3 +159,23 @@ def test_threads_disabled(posts_dir):
     api = FakeAPI()
     assert run_with(api) == 0
     assert not any("threads" in c[1] for c in api.calls)
+
+
+def test_schedule_skips_when_too_late(tmp_path, monkeypatch):
+    import publish
+    from common import Post
+    monkeypatch.setenv("GITHUB_EVENT_NAME", "schedule")
+    monkeypatch.setenv("NOW_OVERRIDE", "2026-11-06T01:50:00+09:00")
+    late = type("P", (), {})()
+    import datetime as _dt
+    from common import KST
+    late.status = "approved"
+    late.publish_at = _dt.datetime(2026, 11, 5, 19, 30, tzinfo=KST)
+    late.folder = tmp_path
+    monkeypatch.setattr(publish, "load_posts", lambda: [late])
+    assert publish.due_posts() == []
+    monkeypatch.setenv("GITHUB_EVENT_NAME", "workflow_dispatch")
+    assert publish.due_posts() == [late]
+    monkeypatch.setenv("GITHUB_EVENT_NAME", "schedule")
+    monkeypatch.setenv("NOW_OVERRIDE", "2026-11-05T21:00:00+09:00")
+    assert publish.due_posts() == [late]

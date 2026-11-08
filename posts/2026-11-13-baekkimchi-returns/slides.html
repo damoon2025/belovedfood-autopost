@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>11/13 백김치가 다시 돌아오는 이유</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root { --ground: #FFFFFF; --soft: #F4F7F3; --ink: #1E1E1C; --body: #3A3A36; --quiet: #6E6E68; --accent: #2F6B4F; --line: #E6EAE4; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ddd; }
+  .slide { width: 1080px; height: 1350px; background: var(--ground); color: var(--ink);
+           font-family: 'Noto Sans KR', 'Noto Sans CJK KR', sans-serif; display: flex; flex-direction: column; overflow: hidden; }
+  .text, .tl, .chip { word-break: keep-all; }
+  .serif { font-family: 'Gowun Batang', 'Noto Serif CJK KR', serif; }
+  /* 사진 톤 통일: 밝고 맑게, 살짝 따뜻하게 */
+  .photo { margin: 48px 48px 0; border-radius: 28px; overflow: hidden; position: relative; flex: none; background: var(--soft); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block;
+               filter: brightness(1.10) contrast(1.05) saturate(1.06); }
+  .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(255,252,245,.10), rgba(255,252,245,.04)); mix-blend-mode: screen; pointer-events: none; }
+  .photo .note { position: absolute; right: 18px; bottom: 16px; padding: 6px 14px; border-radius: 999px; z-index: 2;
+                 background: rgba(0,0,0,.42); color: #fff; font-size: 21px; }
+  .ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; text-align: center;
+        border: 4px dashed #B9C7BC; border-radius: 28px; color: var(--accent); font-size: 34px; font-weight: 700; line-height: 1.5; }
+  .text { padding: 44px 72px 0; display: flex; flex-direction: column; gap: 18px; flex: 1; }
+  .era { align-self: flex-start; padding: 8px 22px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 26px; font-weight: 700; }
+  .kicker { font-size: 30px; font-weight: 700; color: var(--accent); }
+  h1 { margin: 0; font-size: 88px; font-weight: 700; line-height: 1.2; letter-spacing: -1px; }
+  h2 { margin: 0; font-size: 54px; font-weight: 700; line-height: 1.3; letter-spacing: -1px; }
+  p  { margin: 0; font-size: 32px; line-height: 1.6; color: var(--body); }
+  .quote { padding: 22px 28px; border-radius: 18px; background: var(--soft); font-size: 32px; line-height: 1.55; color: var(--ink); }
+  .src { font-size: 21px; color: var(--quiet); line-height: 1.5; }
+  .foot { display: flex; justify-content: space-between; align-items: center; padding: 0 64px 30px; font-size: 25px; color: var(--quiet); }
+  .foot b { color: var(--accent); }
+  .foot .logo { height: 96px; width: auto; display: block; }
+  .foot .brand { display: flex; align-items: center; gap: 18px; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .steps div { display: flex; gap: 20px; align-items: flex-start; padding: 18px 24px; border-radius: 18px; background: var(--soft); font-size: 30px; line-height: 1.45; word-break: keep-all; }
+  .steps b { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 26px; }
+  .vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; align-items: center; text-align: center; }
+  .vs div { padding: 18px 10px; border-radius: 18px; background: var(--soft); font-size: 30px; font-weight: 700; line-height: 1.4; }
+  .vs span { font-size: 34px; color: var(--accent); font-weight: 700; }
+  .tl { display: flex; flex-direction: column; gap: 14px; }
+  .tl div { display: flex; gap: 24px; align-items: baseline; font-size: 30px; line-height: 1.4; }
+  .tl span { flex: none; width: 190px; font-weight: 700; color: var(--accent); }
+  .chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .chip { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-radius: 16px;
+          background: var(--soft); font-size: 30px; font-weight: 500; }
+  .chip i { font-style: normal; padding: 5px 14px; border-radius: 999px; font-size: 21px; }
+  .chip .on { background: var(--accent); color: #fff; }
+  .chip .soon { border: 2px solid var(--quiet); color: var(--body); }
+</style>
+</head>
+<body>
+
+<section class="slide">
+  <div class="photo" style="height: 860px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261108_144053_f43546d5-4cfe-4820-9f3f-e7c524b2e088.png" alt="" style="object-position: center 55%"><span class="note">연출 이미지 · 출시 예정 제품과 다를 수 있어요</span></div>
+  <div class="text" style="gap: 16px">
+    <div class="kicker">그리운밥상 이야기 · 11월 말 백김치 출시 예고</div>
+    <h1 class="serif" style="font-size: 76px">백김치가<br>다시 돌아오는 이유</h1>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>옆으로 넘겨 보세요 →</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 560px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/%E8%8A%9D%E5%B3%B0%E9%A1%9E%E8%AA%AA_%EB%AA%A9%ED%8C%90%EB%B3%B8%28%EC%A1%B0%EC%84%A0%EC%B4%9D%EB%8F%85%EB%B6%80_%EA%B3%A0%EC%84%9C%EB%B6%80_%EB%B6%84%EB%A5%98%ED%91%9C_%E5%8F%A4%E6%9C%9D91%29_%EC%A0%9C1%EA%B6%8C_%28%EC%9B%90%EB%B3%B8_%EC%A0%9C1%EA%B6%8C_%EB%B0%8F_%EC%A0%9C2%EA%B6%8C%29.pdf/page1-960px-%E8%8A%9D%E5%B3%B0%E9%A1%9E%E8%AA%AA_%EB%AA%A9%ED%8C%90%EB%B3%B8%28%EC%A1%B0%EC%84%A0%EC%B4%9D%EB%8F%85%EB%B6%80_%EA%B3%A0%EC%84%9C%EB%B6%80_%EB%B6%84%EB%A5%98%ED%91%9C_%E5%8F%A4%E6%9C%9D91%29_%EC%A0%9C1%EA%B6%8C_%28%EC%9B%90%EB%B3%B8_%EC%A0%9C1%EA%B6%8C_%EB%B0%8F_%EC%A0%9C2%EA%B6%8C%29.pdf.jpg" alt=""><span class="note">『지봉유설』 · 퍼블릭 도메인</span></div>
+  <div class="text">
+    <div class="era">이유 ① 원래 김치의 모습</div>
+    <h2 class="serif">김치는 원래<br>하얀 음식이었어요</h2>
+    <p>고추가 김치에 본격적으로 쓰인 건 18세기 무렵이에요. 그 전 천 년 넘게 김치는 소금과 마늘·생강·파로 맛을 낸 하얀 김치였어요. 백김치는 새로운 김치가 아니라 가장 오래된 김치예요.</p>
+    <div class="src">출처: 『지봉유설』(1614), 『증보산림경제』(1766)</div>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>2 / 7</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 600px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261108_144050_7802d90f-0b08-4919-b118-e0b28ffc3740.png" alt=""><span class="note">연출 이미지 · 출시 예정 제품과 다를 수 있어요</span></div>
+  <div class="text">
+    <div class="era">이유 ② 한 식탁의 모든 세대</div>
+    <h2 class="serif">아이부터 어르신까지<br>한 접시로</h2>
+    <p>맵고 자극적인 맛이 부담스러운 아이, 순한 맛을 찾는 어르신, 매운 걸 즐기는 어른이 한 식탁에 앉아요. 백김치는 누구 몫을 따로 덜 필요 없이 다 같이 집어 먹는 김치예요.</p>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>3 / 7</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 600px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261103_045717_e9aac12f-8c28-49e4-9cb7-39af4c6b787d.png" alt=""><span class="note">그리운밥상 동치미 · 연출 이미지</span></div>
+  <div class="text">
+    <div class="era">이유 ③ 김치를 처음 만나는 세계</div>
+    <h2 class="serif">2025년, 김치는<br>102개국에 닿았어요</h2>
+    <p>2025년 김치 수출은 처음으로 100개국을 넘어 102개국에 이르렀어요. 김치를 처음 맛보는 사람이 늘수록, 맑고 순한 백김치는 김치의 첫인상으로 좋은 선택이에요.</p>
+    <div class="src">출처: 관세청 자료, 세계일보(2026.7)</div>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>4 / 7</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 600px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261108_144051_ea618a3e-1e17-4966-a839-ec77d81272fd.png" alt=""><span class="note">연출 이미지</span></div>
+  <div class="text">
+    <div class="era">이유 ④ 재료의 맛 그대로</div>
+    <h2 class="serif">양념이 아니라<br>재료가 주인공</h2>
+    <p>배추의 단맛, 배와 밤·대추의 은은함, 잣의 고소함. 고춧가루가 덮지 않으니 재료 하나하나의 맛이 또렷해요. 좋은 재료를 쓸수록 맛으로 드러나는 김치예요.</p>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>5 / 7</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 560px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261108_144053_f43546d5-4cfe-4820-9f3f-e7c524b2e088.png" alt="" style="object-position: center 45%"><span class="note">연출 이미지 · 출시 예정 제품과 다를 수 있어요</span></div>
+  <div class="text">
+    <div class="era">그리운밥상의 백김치</div>
+    <h2 class="serif">11월 말,<br>그리운밥상 백김치가 와요</h2>
+    <p>동치미와 백열무김치를 담가 온 손으로 백김치를 준비하고 있어요. 고춧가루 없이 맑고, 배와 무로 은은하게 단 겨울 백김치. 출시 소식은 가장 먼저 여기서 알려 드릴게요.</p>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>6 / 7</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 420px"><img src="../2026-11-02-history/p-both.jpg" alt=""><span class="note">그리운밥상 동치미 · 백열무김치</span></div>
+  <div class="text" style="gap: 20px; padding-top: 40px">
+    <h2 class="serif" style="font-size: 48px">백김치를 기다리는 동안,<br>동치미와 백열무김치로 먼저</h2>
+    <div class="chips">
+      <div class="chip">동치미<i class="on">판매 중</i></div>
+      <div class="chip">백열무김치<i class="on">판매 중</i></div>
+      <div class="chip">갓물김치<i class="soon">곧 출시</i></div>
+      <div class="chip">백김치<i class="soon">11월 말</i></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><b>프로필 링크에서 만나요</b></span><span>7 / 7</span></div>
+</section>
+
+</body>
+</html>

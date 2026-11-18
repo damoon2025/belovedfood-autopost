@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>11/20 김치의 날 · 팔도 물김치 지도</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root { --ground: #FFFFFF; --soft: #F4F7F3; --ink: #1E1E1C; --body: #3A3A36; --quiet: #6E6E68; --accent: #2F6B4F; --line: #E6EAE4; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ddd; }
+  .slide { width: 1080px; height: 1350px; background: var(--ground); color: var(--ink);
+           font-family: 'Noto Sans KR', 'Noto Sans CJK KR', sans-serif; display: flex; flex-direction: column; overflow: hidden; }
+  .text, .tl, .chip { word-break: keep-all; }
+  .serif { font-family: 'Gowun Batang', 'Noto Serif CJK KR', serif; }
+  /* 사진 톤 통일: 밝고 맑게, 살짝 따뜻하게 */
+  .photo { margin: 48px 48px 0; border-radius: 28px; overflow: hidden; position: relative; flex: none; background: var(--soft); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block;
+               filter: brightness(1.10) contrast(1.05) saturate(1.06); }
+  .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(255,252,245,.10), rgba(255,252,245,.04)); mix-blend-mode: screen; pointer-events: none; }
+  .photo .note { position: absolute; right: 18px; bottom: 16px; padding: 6px 14px; border-radius: 999px; z-index: 2;
+                 background: rgba(0,0,0,.42); color: #fff; font-size: 21px; }
+  .ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; text-align: center;
+        border: 4px dashed #B9C7BC; border-radius: 28px; color: var(--accent); font-size: 34px; font-weight: 700; line-height: 1.5; }
+  .text { padding: 44px 72px 0; display: flex; flex-direction: column; gap: 18px; flex: 1; }
+  .era { align-self: flex-start; padding: 8px 22px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 26px; font-weight: 700; }
+  .kicker { font-size: 30px; font-weight: 700; color: var(--accent); }
+  h1 { margin: 0; font-size: 88px; font-weight: 700; line-height: 1.2; letter-spacing: -1px; }
+  h2 { margin: 0; font-size: 54px; font-weight: 700; line-height: 1.3; letter-spacing: -1px; }
+  p  { margin: 0; font-size: 32px; line-height: 1.6; color: var(--body); }
+  .quote { padding: 22px 28px; border-radius: 18px; background: var(--soft); font-size: 32px; line-height: 1.55; color: var(--ink); }
+  .src { font-size: 21px; color: var(--quiet); line-height: 1.5; }
+  .foot { display: flex; justify-content: space-between; align-items: center; padding: 0 64px 30px; font-size: 25px; color: var(--quiet); }
+  .foot b { color: var(--accent); }
+  .foot .logo { height: 96px; width: auto; display: block; }
+  .foot .brand { display: flex; align-items: center; gap: 18px; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .steps div { display: flex; gap: 20px; align-items: flex-start; padding: 18px 24px; border-radius: 18px; background: var(--soft); font-size: 30px; line-height: 1.45; word-break: keep-all; }
+  .steps b { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 26px; }
+  .vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; align-items: center; text-align: center; }
+  .vs div { padding: 18px 10px; border-radius: 18px; background: var(--soft); font-size: 30px; font-weight: 700; line-height: 1.4; }
+  .vs span { font-size: 34px; color: var(--accent); font-weight: 700; }
+  .rv { padding: 26px 30px; border-radius: 20px; background: var(--soft); display: flex; flex-direction: column; gap: 10px; }
+  .rv q { font-family: 'Gowun Batang', serif; font-size: 34px; line-height: 1.5; color: var(--ink); quotes: "“" "”"; word-break: keep-all; }
+  .rv span { font-size: 22px; color: var(--quiet); }
+  .tl { display: flex; flex-direction: column; gap: 14px; }
+  .tl div { display: flex; gap: 24px; align-items: baseline; font-size: 30px; line-height: 1.4; }
+  .tl span { flex: none; width: 190px; font-weight: 700; color: var(--accent); }
+  .chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .chip { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-radius: 16px;
+          background: var(--soft); font-size: 30px; font-weight: 500; }
+  .chip i { font-style: normal; padding: 5px 14px; border-radius: 999px; font-size: 21px; }
+  .chip .on { background: var(--accent); color: #fff; }
+  .chip .soon { border: 2px solid var(--quiet); color: var(--body); }
+</style>
+</head>
+<body>
+
+<section class="slide">
+  <div class="photo" style="height: 860px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261118_010948_4c43f7fe-ced1-48f1-950b-163a6273f932.png" alt="" style="object-position: center 55%"><span class="note">연출 이미지</span></div>
+  <div class="text" style="gap: 16px">
+    <div class="kicker">11월 22일 김치의 날</div>
+    <h1 class="serif" style="font-size: 88px">팔도 물김치 지도</h1>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>옆으로 넘겨 보세요 →</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 600px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261108_144053_b4a5ce0d-5852-4871-96b2-938b8bc26952.png" alt="" style="object-position: center 50%"><span class="note">연출 이미지</span></div>
+  <div class="text">
+    <div class="era">2020년 · 김치의 날</div>
+    <h2 class="serif">식품 최초의<br>법정기념일</h2>
+    <p>2020년 김치산업 진흥법이 개정되며 매년 11월 22일이 ‘김치의 날’이 됐어요. 식품으로는 처음 생긴 법정기념일이에요. 이제는 미국과 영국 등 해외 여러 지역에서도 이날을 김치의 날로 기념해요.</p>
+    <div class="src">출처: 노컷뉴스(2023), 전자신문(2023)</div>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>2 / 9</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 620px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261118_010947_960797c4-c8b9-43c4-bbe4-87c3d4d55b10.png" alt=""><span class="note">연출 이미지</span></div>
+  <div class="text">
+    <div class="era">평안도</div>
+    <h2 class="serif">추운 북쪽은<br>국물을 넉넉하게</h2>
+    <p>날이 추워 김치가 잘 익지 않는 평안도에선 소금을 적게 넣고 국물을 넉넉히 부어, 심심하면서 시원한 김치를 즐겼어요. 동치미와 백김치가 대표적이고, 동치미 국물에 메밀국수를 말아 먹기도 했어요.</p>
+    <div class="src">출처: 농림축산식품부 김치 시리즈(2021)</div>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>3 / 9</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 620px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261118_010948_ede7810b-7ec0-45ad-a3ff-c8a159723afb.png" alt=""><span class="note">연출 이미지</span></div>
+  <div class="text">
+    <div class="era">서울·경기</div>
+    <h2 class="serif">얇고 네모나게,<br>나박김치</h2>
+    <p>무와 배추를 얇고 네모지게 썰어 가볍게 절인 뒤 국물을 부어요. 채소를 얇게 써는 만큼 비교적 빨리 맛이 들어, 담가서 금방 먹는 물김치예요.</p>
+    <div class="src">출처: 농림축산식품부(2021), 위키트리</div>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>4 / 9</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 600px"><img src="../2026-11-02-history/p-d-top.jpg" alt="" style="object-position: center 45%"><span class="note">그리운밥상 동치미</span></div>
+  <div class="text">
+    <div class="era">전라도</div>
+    <h2 class="serif">동치미를<br>‘싱건지’라고 불러요</h2>
+    <p>전라도에선 동치미를 ‘싱건지’라고도 불러요. 나주 동치미가 이름난 곳이죠. 그리운밥상 후기에도 “시어머니의 싱건지가 그리웠다”는 이야기가 있었어요.</p>
+    <div class="src">출처: 매일신문 「지역별 김치」(2014)</div>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>5 / 9</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 600px"><img src="../2026-11-02-history/p-g-bowl.jpg" alt="" style="object-position: center 55%"><span class="note">그리운밥상 갓물김치 · 출시 예정</span></div>
+  <div class="text">
+    <div class="era">여수</div>
+    <h2 class="serif">알싸한 갓의 고장</h2>
+    <p>갓김치 하면 여수 돌산갓이죠. 여수 돌산갓과 돌산갓김치는 2010년 지리적표시에 등록됐어요. 그 알싸한 갓을 맑은 국물에 담그면 갓물김치가 돼요.</p>
+    <div class="src">출처: 전북일보 「신팔도명물 여수 돌산갓」(2023)</div>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>6 / 9</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 460px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261118_010948_4c43f7fe-ced1-48f1-950b-163a6273f932.png" alt="" style="object-position: center 60%"><span class="note">연출 이미지</span></div>
+  <div class="text" style="gap: 14px">
+    <div class="era">한눈에 보는 물김치 지도</div>
+    <div class="tl">
+      <div><span>함경도</span>소금 간에 국물 넉넉히</div>
+      <div><span>평안도</span>동치미·백김치, 심심하고 시원하게</div>
+      <div><span>서울·경기</span>나박김치</div>
+      <div><span>전라도</span>싱건지(동치미), 나주 동치미</div>
+      <div><span>여수</span>돌산갓으로 담그는 갓김치</div>
+    </div>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>7 / 9</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 600px"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FgIMVD7a1hBrSPzPOHKlir0ZuQ/hf_20261118_010949_dbc26377-3d90-4e83-84ac-75d0e36906e4.png" alt=""><span class="note">연출 이미지</span></div>
+  <div class="text">
+    <div class="era">김치의 날, 질문 하나</div>
+    <h2 class="serif">여러분 고향의<br>물김치는 무엇인가요?</h2>
+    <p>같은 무, 같은 소금물이어도 지역마다 이름도 맛도 달라요. 어릴 적 먹던 물김치 이야기를 댓글로 들려주세요. 다음 이야기에 소개할게요.</p>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>8 / 9</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 420px"><img src="../2026-11-02-history/p-both.jpg" alt=""><span class="note">그리운밥상 동치미 · 백열무김치</span></div>
+  <div class="text" style="gap: 20px; padding-top: 40px">
+    <h2 class="serif" style="font-size: 48px">김치의 날,<br>그리운밥상 물김치로</h2>
+    <div class="chips">
+      <div class="chip">동치미<i class="on">판매 중</i></div>
+      <div class="chip">백열무김치<i class="on">판매 중</i></div>
+      <div class="chip">갓물김치<i class="soon">곧 출시</i></div>
+      <div class="chip">백김치<i class="soon">11월 말</i></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><b>프로필 링크에서 만나요</b></span><span>9 / 9</span></div>
+</section>
+
+</body>
+</html>

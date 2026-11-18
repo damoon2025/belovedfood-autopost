@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>11/21 후기 모음② 백열무김치</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root { --ground: #FFFFFF; --soft: #F4F7F3; --ink: #1E1E1C; --body: #3A3A36; --quiet: #6E6E68; --accent: #2F6B4F; --line: #E6EAE4; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ddd; }
+  .slide { width: 1080px; height: 1350px; background: var(--ground); color: var(--ink);
+           font-family: 'Noto Sans KR', 'Noto Sans CJK KR', sans-serif; display: flex; flex-direction: column; overflow: hidden; }
+  .text, .tl, .chip { word-break: keep-all; }
+  .serif { font-family: 'Gowun Batang', 'Noto Serif CJK KR', serif; }
+  /* 사진 톤 통일: 밝고 맑게, 살짝 따뜻하게 */
+  .photo { margin: 48px 48px 0; border-radius: 28px; overflow: hidden; position: relative; flex: none; background: var(--soft); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block;
+               filter: brightness(1.10) contrast(1.05) saturate(1.06); }
+  .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(255,252,245,.10), rgba(255,252,245,.04)); mix-blend-mode: screen; pointer-events: none; }
+  .photo .note { position: absolute; right: 18px; bottom: 16px; padding: 6px 14px; border-radius: 999px; z-index: 2;
+                 background: rgba(0,0,0,.42); color: #fff; font-size: 21px; }
+  .ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; text-align: center;
+        border: 4px dashed #B9C7BC; border-radius: 28px; color: var(--accent); font-size: 34px; font-weight: 700; line-height: 1.5; }
+  .text { padding: 44px 72px 0; display: flex; flex-direction: column; gap: 18px; flex: 1; }
+  .era { align-self: flex-start; padding: 8px 22px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 26px; font-weight: 700; }
+  .kicker { font-size: 30px; font-weight: 700; color: var(--accent); }
+  h1 { margin: 0; font-size: 88px; font-weight: 700; line-height: 1.2; letter-spacing: -1px; }
+  h2 { margin: 0; font-size: 54px; font-weight: 700; line-height: 1.3; letter-spacing: -1px; }
+  p  { margin: 0; font-size: 32px; line-height: 1.6; color: var(--body); }
+  .quote { padding: 22px 28px; border-radius: 18px; background: var(--soft); font-size: 32px; line-height: 1.55; color: var(--ink); }
+  .src { font-size: 21px; color: var(--quiet); line-height: 1.5; }
+  .foot { display: flex; justify-content: space-between; align-items: center; padding: 0 64px 30px; font-size: 25px; color: var(--quiet); }
+  .foot b { color: var(--accent); }
+  .foot .logo { height: 96px; width: auto; display: block; }
+  .foot .brand { display: flex; align-items: center; gap: 18px; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .steps div { display: flex; gap: 20px; align-items: flex-start; padding: 18px 24px; border-radius: 18px; background: var(--soft); font-size: 30px; line-height: 1.45; word-break: keep-all; }
+  .steps b { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 26px; }
+  .vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; align-items: center; text-align: center; }
+  .vs div { padding: 18px 10px; border-radius: 18px; background: var(--soft); font-size: 30px; font-weight: 700; line-height: 1.4; }
+  .vs span { font-size: 34px; color: var(--accent); font-weight: 700; }
+  .rv { padding: 26px 30px; border-radius: 20px; background: var(--soft); display: flex; flex-direction: column; gap: 10px; }
+  .rv q { font-family: 'Gowun Batang', serif; font-size: 34px; line-height: 1.5; color: var(--ink); quotes: "“" "”"; word-break: keep-all; }
+  .rv span { font-size: 22px; color: var(--quiet); }
+  .tl { display: flex; flex-direction: column; gap: 14px; }
+  .tl div { display: flex; gap: 24px; align-items: baseline; font-size: 30px; line-height: 1.4; }
+  .tl span { flex: none; width: 190px; font-weight: 700; color: var(--accent); }
+  .chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .chip { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-radius: 16px;
+          background: var(--soft); font-size: 30px; font-weight: 500; }
+  .chip i { font-style: normal; padding: 5px 14px; border-radius: 999px; font-size: 21px; }
+  .chip .on { background: var(--accent); color: #fff; }
+  .chip .soon { border: 2px solid var(--quiet); color: var(--body); }
+</style>
+</head>
+<body>
+
+<section class="slide">
+  <div class="photo" style="height: 740px"><img src="../2026-11-02-history/p-y-lift.jpg" alt="" style="object-position: center 40%"><span class="note">그리운밥상 백열무김치</span></div>
+  <div class="text" style="gap: 18px">
+    <div class="kicker">드셔 본 분들의 이야기 ②</div>
+    <h1 class="serif" style="font-size: 58px; line-height: 1.35">“아 빨리 집에 가서<br>시원한 하아얀 열무김치<br>씹어먹고싶다~~”</h1>
+    <div class="src" style="font-size: 24px">백열무김치 구매평 (네이버페이)</div>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>옆으로 넘겨 보세요 →</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 500px"><img src="../2026-11-02-history/p-y-bowl.jpg" alt=""><span class="note">그리운밥상 백열무김치</span></div>
+  <div class="text" style="gap: 14px">
+    <div class="era">입 짧은 가족도</div>
+    <div class="rv"><q>남편 입짧아서 … 먹긴 먹는데 국물까진 안 먹더라고요. 그래서 여기 제품 고민 고민을 하다가 혹시나 해서 제일 작은 걸로 주문을 했더니 너무 잘 먹는 거예요.</q><span>백열무김치 구매평 (네이버페이)</span></div>
+    <div class="rv"><q>그냥 먹어도 맛있고 고추장에 참기름에 보리밥에 비벼먹어도 맛있고</q><span>백열무김치 구매평 (네이버페이)</span></div>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>2 / 5</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 500px"><img src="../2026-11-02-history/p-y-lift.jpg" alt="" style="object-position: center 65%"><span class="note">그리운밥상 백열무김치</span></div>
+  <div class="text" style="gap: 14px">
+    <div class="era">다시 찾는 맛</div>
+    <div class="rv"><q>오랫만에 집에서 만든 열무믈김치를 만났습니다 … 전라도 입맛이라 김치 구입시 좀 신중한데.. 만족스러워 2번째 재주문입니다</q><span>백열무김치 구매평 (네이버페이)</span></div>
+    <div class="rv"><q>국물이 시원하고 열무가 아삭해서 맛있게 잘 먹었습니다.</q><span>백열무김치 구매평 (네이버페이)</span></div>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>3 / 5</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 520px"><img src="../2026-11-02-history/p-d-cover.jpg" alt="" style="object-position: center 60%"><span class="note">그리운밥상 동치미</span></div>
+  <div class="text" style="gap: 14px">
+    <div class="era">동치미도 또 주문</div>
+    <div class="rv"><q>상품이 넘 좋아 주변 지인들에게 소개하고 있답니다 감사해요-^^~</q><span>동치미 구매평 (네이버페이)</span></div>
+    <div class="rv"><q>맛있어요 또구매 혼자서다먹음</q><span>동치미 구매평 (네이버페이)</span></div>
+  </div>
+  <div class="foot"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><span>4 / 5</span></div>
+</section>
+
+<section class="slide">
+  <div class="photo" style="height: 420px"><img src="../2026-11-02-history/p-both.jpg" alt=""><span class="note">그리운밥상 동치미 · 백열무김치</span></div>
+  <div class="text" style="gap: 20px; padding-top: 40px">
+    <h2 class="serif" style="font-size: 48px">여러분의 이야기도<br>기다리고 있어요</h2>
+    <p>드셔 보신 소감을 댓글로 남겨 주시면 다음 후기 모음에 소개해 드릴게요.</p>
+    <div class="chips">
+      <div class="chip">동치미<i class="on">판매 중</i></div>
+      <div class="chip">백열무김치<i class="on">판매 중</i></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand"><img class="logo" src="../2026-11-02-history/logo-belovedfood.png" alt="그리운밥상"><b>프로필 링크에서 만나요</b></span><span>5 / 5</span></div>
+</section>
+
+</body>
+</html>
